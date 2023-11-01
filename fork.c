@@ -36,12 +36,11 @@ int main()
         }
     }
     if (i == maxThreads + 1) {
-        for (int s = 0; s < maxThreads + 1; s++) {
-            waitpid(pid_array[s], &status, 0);
+        for (int pid = 0; pid < maxThreads + 1; s++) {
+            waitpid(pid_array[pid], &status, 0);
         }
         fwrite(f, sizeof(f), 1, new_file);
-    }
-    else {
+    } else {
         double start = imageSize - i;
         double end = 0;
         change_bytes(start, end, f);
